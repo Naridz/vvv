@@ -9,9 +9,11 @@ defineProps({
 
 const count = useCounterStore()
 const clickP = ref("")
+const clickD = ref("")
 
-const clickProduct = (id)=>{
+const clickProduct = (id,description)=>{
   clickP.value= id 
+  clickD.value= description
 }
 
 </script>
@@ -36,8 +38,8 @@ const clickProduct = (id)=>{
                       class="btn w-75 mx-auto mb-3"
                       :class="count.theme===false?'btn-success':' btn-primary'" 
                       data-bs-toggle="modal" data-bs-target="#myModal"
-                      @click="clickProduct(product.id)"
-                      >Ok</button>
+                      @click="clickProduct(product.id,product.description)"
+                      >Okkkk</button>
                 </div>
              </div>
       </div> 
@@ -46,7 +48,8 @@ const clickProduct = (id)=>{
                 <div class="modal-dialog">
                   <div class="modal-content">
                    <div class="modal-body">
-                       <h4 class="modal-title">product : {{ clickP }} </h4>
+                       <h4 class="modal-title">product : {{ clickP }} <hr> </h4>
+                       <p class="modal-title text-muted"> {{ clickD }} </p>
                    </div>
                   </div>
                </div>
